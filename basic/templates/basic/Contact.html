@@ -1,0 +1,161 @@
+{% extends "basic/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Контакты{% endblock meta_title %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-5 lead" align="center">
+            <p>ЧП «Реал – Пак»</p>
+            <p>г. Киев, ул. Березняковская</p>
+
+            <p>+38 (044) 337-47-43</p>
+            <p>+38 (097) 174-56-55</p>
+            <p>+38 (066) 271-49-45</p>
+            <p>real-pak@yandex.ua</p>        
+    </div>
+
+    <div class="col-md-7">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2541.928794142328!2d30.61183213783843!3d50.42379829420418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1473945610022" align="right" width="550" height="220" hspace="5" vspace="15" frameborder="0" style="border:0" allowfullscreen></iframe>  
+    </div>
+</div>
+
+<form action="{% url "contact" %}" method="post" enctype="multipart/form-data" name="message" class="form-horizontal">
+{% csrf_token %}
+    <div class="row" >
+        <div class="col-md-6">        
+                <input type="hidden" value="27" name="id">
+                            
+                <div class="form-group">
+                    <label for="first_name" class="col-sm-2 control-label">Имя*</label>
+                    <div class="col-sm-10">     
+                        <input type="text" value="" name="first_name" id="first_name" placeholder="Имя" class="form-control">   
+                        <span class="help-block"></span> 
+                    </div> 
+                </div>
+
+                <div class="form-group">
+                    <label for="phone_number" class="col-sm-2 control-label">Телефон*</label>
+                    <div class="col-sm-10">                    
+                        <input type="text" value="" name="phone_number" id="phone_number" placeholder="Номер телефона" class="form-control">    
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">Email*</label>
+                    <div class="col-sm-10">  
+                        <input type="text" value="" name="email" id="email" placeholder="Email" class="form-control">
+                        <span class="help-block"></span>    
+                    </div>
+                </div>           
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="message" class="col-sm-2 control-label">Сообщение*</label>
+                <div class="col-sm-10">
+                    <textarea rows="7" cols="45" name="message" id="message" placeholder="Текст сообщения" class="form-control"></textarea>  
+                    <span class="help-block"></span>  
+                </div>
+            </div>
+    <!--
+            <div class="alert alert-success" role="alert">
+
+            </div>
+    -->
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+            <div class="form-group" align="center">
+            <!--
+                <label class="col-sm-2 control-label"></label>
+            -->
+                <div class="col-md-12"> 
+                    <input type="submit" name="send_message" value="Отправить сообщение" class="btn btn-default" >  
+                </div> 
+            </div>    
+    </div>
+
+</form>
+
+<!--
+        <div id="contact" class="lead">
+            
+            <p>ЧП «Реал – Пак»</p>
+            <p>г. Киев, ул. Березняковская</p>
+
+            <p>+38 (044) 337-47-43</p>
+            <p>+38 (097) 174-56-55</p>
+            <p>+38 (066) 271-49-45</p>
+            <p>real-pak@yandex.ua</p> 
+            
+        </div>
+
+        <div id="message">
+            
+            <form action="{% url "contact" %}" method="post" enctype="multipart/form-data" name="message" class="form-horizontal">
+
+                {% csrf_token %}
+
+                <input type="hidden" value="27" name="id"/>
+                
+                <div class="form-group {% if errors.first_name %}has-error{% endif %}">
+                    <label for="first_name">Имя*</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{ request.POST.first_name }}" name="first_name" id="first_name" class="form-control">   
+                        <span class="help-block">{{ errors.first_name }}</span> 
+                    </div>
+                </div>
+
+                <div class="form-group {% if errors.phone_number %}has-error{% endif %}">
+                    <label for="phone_number">Телефон*</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{ request.POST.phone_number }}" name="phone_number" id="phone_number" class="form-control">    
+                        <span class="help-block">{{ errors.phone_number }}</span>
+                    </div>
+                </div class="form-group {% if errors.first_name %}has-error{% endif %}">
+
+                <div class="form-group {% if errors.email %}has-error{% endif %}">
+                    <label for="email">Email*</label>
+                    <div class="col-sm-10">
+                        <input type="text" value="{{ request.POST.email }}" name="email" id="email" class="form-control">
+                        <span class="help-block">{{ errors.email }}</span>    
+                    </div>
+                </div>
+
+                <div class="form-group {% if errors.message %}has-error{% endif %}">
+                    <label for="message">Сообщение*</label>
+                    <div class="col-sm-10">
+                        <textarea rows="10" cols="45" name="message" id="message" class="form-control">{{ request.POST.message }}</textarea>  
+                        <span class="help-block">{{ errors.message }}</span>  
+                    </div>
+                </div>
+
+                {% if request.GET.status_message %}
+                <div class="alert alert-success" role="alert">
+                {{ request.GET.status_message }}
+                </div>
+                {% else %}
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                
+                        <input type="submit" name="send_message" value="Отправить сообщение" class="btn btn-default">
+
+                </div>
+                {% endif %}
+            </form>
+        </div>
+
+        <div id="map">
+            
+        </div>
+-->
+
+{% endblock content %}

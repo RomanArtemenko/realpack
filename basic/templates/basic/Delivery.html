@@ -1,0 +1,32 @@
+{% extends "basic/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Доставка{% endblock meta_title %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>
+            <p align="center">Доставка Вашего заказа:</p>
+        </h1>
+        <span class="lead">
+            <ul>
+              <li>Адресная доставка по Киеву, Киевской области, Украине.</li>
+              <li>Доставка грузоперевозчиком («Деливери», «Новая Почта», «Автолюкс», «Ин –
+            Тайм», «SAT» и др.)</li>
+              <li>Самовывоз со склада.</li>
+            </ul>  
+        </span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div align="center">
+            <img src="{% static "img/delivery.jpg" %}" width="400" height="300" border="2">        
+        </div>
+    </div>
+</div>  
+
+{% endblock content %}

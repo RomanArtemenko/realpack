@@ -1,0 +1,27 @@
+{% extends "basic/base.html" %}
+
+{% load static from staticfiles %}
+
+{% block meta_title %}Главная{% endblock meta_title %}
+
+{% block content %}
+
+    <div class="row">
+        <p class="lead"><img src="{% static "img/main1.jpg" %}" align="left" hspace="15" vspace="5">RealPack – это сплоченная команда настоящих профессионалов, которые имеют большой опыт работы на динамично развивающемся рынке упаковочных материалов.</p>
+    </div>
+    <div class="row">
+        <p class="lead"><img src="{% static "img/main2.jpg" %}" align="right" hspace="15" vspace="5"> Уже много лет мы занимаемся производством и поставкой упаковочных материалов во многие города нашей страны.</p>
+    </div>
+    <div class="row">
+        <p class="lead"><img src="{% static "img/main3.jpg" %}" align="left" hspace="15" vspace="5">Наши сотрудники любят свое дело и знают его досконально, поэтому продукция компании прошла самую строгую проверку на прочность и надежность.</p>
+    </div>
+    <div class="row">
+        <p class="lead"><img src="{% static "img/main4.jpg" %}" align="right" hspace="15" vspace="5">Мы дорожим своей репутацией, и гордимся доверием наших клиентов и партнеров.</p>
+    </div>
+<!--
+    <p class="lead"><img src="{% static "img/main_1s.jpg" %}" align="left">RealPack – это сплоченная команда настоящих профессионалов, которые имеют большой опыт работы на динамично развивающемся рынке упаковочных материалов.</p>
+    <p class="lead"><img src="{% static "img/main_2s.jpg" %}" align="right"> Уже много лет мы занимаемся производством и поставкой упаковочных материалов во многие города нашей страны.</p>
+    <p class="lead"><img src="{% static "img/main_3s.jpg" %}" align="left">Наши сотрудники любят свое дело и знают его досконально, поэтому продукция компании прошла самую строгую проверку на прочность и надежность.</p>
+    <p class="lead"><img src="{% static "img/main_4s.jpg" %}" align="right">Мы дорожим своей репутацией, и гордимся доверием наших клиентов и партнеров.</p>
+-->    
+{% endblock content %}

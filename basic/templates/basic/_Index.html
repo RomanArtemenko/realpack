@@ -1,0 +1,95 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+
+    <title>RealPack</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{% static "css/ie10-viewport-bug-workaround.css" %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static "css/sticky-footer-navbar.css" %}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url "main" %}">RealPack</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="{% url "main" %}">Главная</a></li>
+            <li><a href="{% url "product" %}">Продукция</a></li>
+            <li><a href="/collaboration">Сотрудничество</a></li>
+            <li><a href="/delivery">Доставка</a></li>
+            <li><a href="/contact">Контакты</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <p class="lead">RealPack – это сплоченная команда настоящих профессионалов, которые имеют большой опыт работы на динамично развивающемся рынке упаковочных материалов. Уже много лет мы занимаемся производством и поставкой упаковочных материалов во многие города нашей страны. 
+Наши сотрудники любят свое дело и знают его досконально, поэтому продукция компании прошла самую строгую проверку на прочность и надежность. Мы дорожим своей репутацией, и гордимся доверием наших клиентов и партнеров.
+На официальном сайте компании РеалПак представлены товары только самого высокого качества: упаковочная пленка, джамбо – рулоны, пузырчатая пленка, различные виды скотча и стрейча.
+В условиях динамично растущего спроса на данный вид продукции, мы стараемся постоянно расширять свой ассортимент, чтобы обеспечить украинского потребителя широким выбором лучших упаковочных материалов.
+Сотрудники компании РеалПак всегда к вашим услугам: они с удовольствием ответят на все вопросы, предоставят необходимые образцы и помогут принять окончательное решение относительно покупки оптимального для вас варианта упаковочной продукции.
+Аккуратность, ответственность и индивидуальный подход к каждому покупателю - вот основные принципы нашей работы. С РеалПак ваш бизнес будет процветать и «крепко и надёжно упакован»!
+Мы предлагаем своим клиентам самые современные упаковочные материалы оптом по самым выгодным ценам.
+Работать с нами ВЫГОДНО и НАДЕЖНО:
+Работая с нами, Вы получаете прямой контракт с ПРОИЗВОДИТЕЛЕМ.
+
+Для Вас это значит:
+• цены ниже относительно цен компаний – перепродавцов, присутствующих на рынке;
+• качество. Мы гарантируем Вам заявленные параметры упаковочных лент, а также соответствие длин намоток;
+• параметры и количество, заявленные в счетах на оплату, всегда соответствуют реальным параметрам и количеству поставленного товара. Мы гарантируем возврат денег в случае если «вдруг» Вы сможете обнаружить какую-либо недостачу.
+</p>
+    </div>
+
+    <footer class="footer navbar-inverse">
+      <div class="container">
+        <p class="text-muted">&copy; RealPack 2016</p>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
+  </body>
+</html>
