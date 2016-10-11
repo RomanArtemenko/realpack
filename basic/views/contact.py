@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.core.mail import send_mail
+from datetime import datetime
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from realpack.settings import ADMIN_EMAIL
 
 def contact(request):
     if request.method == "POST":
@@ -15,10 +19,7 @@ def contact(request):
             if not first_name:
                 errors['first_name'] = u"Имя является обязательлным полем"
             else:
-                data['first_name'] = first_name#            if not last_name:
-#                errors['last_name'] = u"Фамилия является обязательлным полем"
-#            else:
-#                data['last_name'] = last_name
+                data['first_name'] = first_name
 
             phone_number = request.POST.get('phone_number', '').strip()
 
@@ -42,7 +43,23 @@ def contact(request):
                 data['message'] = message
 
             if not errors:
-                return HttpResponseRedirect(u'%s?status_message=Сообщение успешно отправлено!' %reverse('contact'))
+
+            	subjet = u"Contact form"
+
+            	msg = ">>> Create message >>> " + "date_time" + "\n" 
+            	msg = msg + u"Контактное лицо : " + first_name + "\n" 
+            	msg = msg + u"Тел. : " + phone_number + "\n" 
+            	msg = msg + u"Email : " + email + "\n"
+            	msg = msg + u"Текст сообщения : " + "\n" + message
+
+            	try:
+            		send_mail(subjet, msg, email, [ADMIN_EMAIL])
+            	except Exception:
+            		return HttpResponseRedirect(u'%s?status_message=FATAL ERROR!' %reverse('contact'))
+            	else:
+            		return HttpResponseRedirect(u'%s?status_message=Сообщение успешно отправлено!' %reverse('contact'))
+
+                #return HttpResponseRedirect(u'%s?status_message=Сообщение успешно отправлено!' %reverse('contact'))
             else:
                 return render(request, 'basic/contact.html', {'errors' : errors})
     else:

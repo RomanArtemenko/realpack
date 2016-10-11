@@ -9,7 +9,11 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-#from django.conf import global_settings
+from django.conf import global_settings
+
+from .env_settings import SECRET_KEY, DEBUG, TEMPLATE_DEBUG, ALLOWED_HOSTS
+from .env_settings import PORTAL_URL, STATIC_URL, STATIC_ROOT
+from .env_settings import ADMIN_EMAIL, EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_USE_TLS, EMAIL_USE_SSL
 
 import os
 
@@ -21,12 +25,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e356#hepfvqad$!z=5rkc$1nkbk*k=8yvzfav18w*j=+8wd7$s'
+#SECRET_KEY = 'e356#hepfvqad$!z=5rkc$1nkbk*k=8yvzfav18w*j=+8wd7$s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -121,6 +125,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
-PORTAL_URL = 'http://localhost:8000'
+#PORTAL_URL = 'http://localhost:8000'
+
+# email settings
+# please, set here you smtp server details and your admin email
+#ADMIN_EMAIL = 'false_07@mail.ru'
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = '587'
+#EMAIL_HOST_USER = 'AnonimFakeov@gmail.com'
+#EMAIL_HOST_PASSWORD = 'Fuck2014All'
+#EMAIL_USE_TLS = True
+#EMAIL_USE_SSL = False
